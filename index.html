@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f1026">
+  <title>Rafael Nunes | Orçamento de Pintura e Acabamentos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <i class="bi bi-brush"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Rafael Nunes</span>
+          <span class="brand-subtitle">Pintura e Acabamentos</span>
+        </div>
+      </div>
+      <div class="total-pill">
+        <div class="total-pill-icon">
+          <i class="bi bi-cash-coin"></i>
+        </div>
+        <div class="total-pill-content">
+          <span class="total-pill-label">Total do orçamento</span>
+          <span class="total-pill-value" id="header-total">R$ 0,00</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="eyebrow">
+            <i class="bi bi-paint-bucket"></i>
+            Orçamento profissional
+          </span>
+          <h1 class="hero-title">Orçamentos rápidos e completos</h1>
+          <p class="hero-subtitle">Calcule pintura, massa corrida, textura, acabamentos e mão de obra em poucos cliques. Edite valores, aplique desconto e envie direto pelo WhatsApp ou gere PDF.</p>
+          <div class="hero-grid">
+            <div class="hero-card">
+              <span class="hero-card-label">Cálculo inteligente</span>
+              <span class="hero-card-value">Mão de obra + Materiais</span>
+            </div>
+            <div class="hero-card">
+              <span class="hero-card-label">Envio prático</span>
+              <span class="hero-card-value">WhatsApp • Imprimir PDF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="stepper">
+      <div class="step active" data-step="1">
+        <div class="step-number">1</div>
+        <div class="step-text">
+          <span class="step-kicker">Etapa</span>
+          <span class="step-title">Cliente</span>
+        </div>
+      </div>
+      <div class="step" data-step="2">
+        <div class="step-number">2</div>
+        <div class="step-text">
+          <span class="step-kicker">Etapa</span>
+          <span class="step-title">Serviços</span>
+        </div>
+      </div>
+      <div class="step" data-step="3">
+        <div class="step-number">3</div>
+        <div class="step-text">
+          <span class="step-kicker">Etapa</span>
+          <span class="step-title">Tarefas</span>
+        </div>
+      </div>
+      <div class="step" data-step="4">
+        <div class="step-number">4</div>
+        <div class="step-text">
+          <span class="step-kicker">Etapa</span>
+          <span class="step-title">Medições</span>
+        </div>
+      </div>
+      <div class="step" data-step="5">
+        <div class="step-number">5</div>
+        <div class="step-text">
+          <span class="step-kicker">Etapa</span>
+          <span class="step-title">Revisão</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ETAPA 1 -->
+    <section class="panel active" id="panel-1">
+      <article class="card">
+        <div class="card-inner">
+          <header class="card-header">
+            <div class="card-title-group">
+              <div class="card-icon">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <div class="card-heading">
+                <h2 class="card-title">Dados do cliente</h2>
+                <p class="card-subtitle">Preencha para personalizar o orçamento</p>
+              </div>
+            </div>
+          </header>
+          <div class="form-grid">
+            <div class="field">
+              <label class="label">Nome completo *</label>
+              <input class="input" id="cliente-nome" placeholder="Ex.: João da Silva">
+            </div>
+            <div class="field half">
+              <label class="label">WhatsApp / Telefone</label>
+              <input class="input" id="cliente-telefone" inputmode="tel" placeholder="(00) 00000-0000">
+            </div>
+            <div class="field half">
+              <label class="label">Data do orçamento</label>
+              <input class="input" type="date" id="orcamento-data">
+            </div>
+            <div class="field">
+              <label class="label">Endereço da obra</label>
+              <input class="input" id="cliente-endereco" placeholder="Rua, número, bairro, cidade">
+            </div>
+            <div class="field half">
+              <label class="label">Validade</label>
+              <select class="select" id="orcamento-validade">
+                <option value="3">3 dias</option>
+                <option value="7" selected>7 dias</option>
+                <option value="15">15 dias</option>
+                <option value="30">30 dias</option>
+              </select>
+            </div>
+            <div class="field half">
+              <label class="label">Responsável</label>
+              <input class="input" id="orcamento-responsavel" value="Rafael Nunes">
+            </div>
+            <div class="field">
+              <label class="label">Observações</label>
+              <textarea class="textarea" id="cliente-obs" placeholder="Forma de pagamento, prazo, materiais inclusos ou outras informações..."></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" onclick="irPara(2)">
+              Avançar para serviços
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ETAPA 2 -->
+    <section class="panel" id="panel-2">
+      <article class="card">
+        <div class="card-inner">
+          <header class="card-header">
+            <div class="card-title-group">
+              <div class="card-icon">
+                <i class="bi bi-paint-bucket"></i>
+              </div>
+              <div class="card-heading">
+                <h2 class="card-title">Selecione os serviços</h2>
+                <p class="card-subtitle">Marque o que será orçado nesta proposta</p>
+              </div>
+            </div>
+          </header>
+          <div class="service-grid">
+            <div class="service-card" data-service="pintura" onclick="toggleServico(this)">
+              <div class="service-info">
+                <div class="service-icon">
+                  <i class="bi bi-brush"></i>
+                </div>
+                <div class="service-text">
+                  <span class="service-title">Pintura Interna/Externa</span>
+                  <span class="service-sub">PVA, Acrílica, Látex</span>
+                </div>
+              </div>
+              <div class="service-check">
+                <i class="bi bi-check-lg"></i>
+              </div>
+            </div>
+            <div class="service-card" data-service="massa" onclick="toggleServico(this)">
+              <div class="service-info">
+                <div class="service-icon">
+                  <i class="bi bi-layers"></i>
+                </div>
+                <div class="service-text">
+                  <span class="service-title">Massa Corrida</span>
+                  <span class="service-sub">Preparação e acabamento</span>
+                </div>
+              </div>
+              <div class="service-check">
+                <i class="bi bi-check-lg"></i>
+              </div>
+            </div>
+            <div class="service-card" data-service="textura" onclick="toggleServico(this)">
+              <div class="service-info">
+                <div class="service-icon">
+                  <i class="bi bi-grid-1x2"></i>
+                </div>
+                <div class="service-text">
+                  <span class="service-title">Textura / Grafiato</span>
+                  <span class="service-sub">Acabamento decorativo</span>
+                </div>
+              </div>
+              <div class="service-check">
+                <i class="bi bi-check-lg"></i>
+              </div>
+            </div>
+            <div class="service-card" data-service="completo" onclick="toggleServico(this)">
+              <div class="service-info">
+                <div class="service-icon">
+                  <i class="bi bi-check-circle"></i>
+                </div>
+                <div class="service-text">
+                  <span class="service-title">Obra completa</span>
+                  <span class="service-sub">Massa + Pintura + Acabamentos</span>
+                </div>
+              </div>
+              <div class="service-check">
+                <i class="bi bi-check-lg"></i>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-ghost" onclick="irPara(1)">
+              <i class="bi bi-arrow-left"></i>
+              Voltar
+            </button>
+            <button class="btn btn-primary" onclick="irPara(3)">
+              Avançar para tarefas
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ETAPA 3 -->
+    <section class="panel" id="panel-3">
+      <article class="card">
+        <div class="card-inner">
+          <header class="card-header">
+            <div class="card-title-group">
+              <div class="card-icon">
+                <i class="bi bi-list-check"></i>
+              </div>
+              <div class="card-heading">
+                <h2 class="card-title">Tarefas do orçamento</h2>
+                <p class="card-subtitle">Adicione, inclua/exclua ou remova tarefas da proposta</p>
+              </div>
+            </div>
+          </header>
+          <div class="form-grid">
+            <div class="field">
+              <label class="label">Nova tarefa</label>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <input class="input" id="tarefa-nome" placeholder="Ex.: Pintura de paredes, Massa corrida..." style="flex:1 1 220px;">
+                <button class="btn btn-primary" style="flex:0 0 auto;" onclick="adicionarTarefa()">
+                  <i class="bi bi-plus-lg"></i>
+                  Adicionar tarefa
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="list" id="lista-tarefas"></div>
+          <div class="actions">
+            <button class="btn btn-ghost" onclick="irPara(2)">
+              <i class="bi bi-arrow-left"></i>
+              Voltar
+            </button>
+            <button class="btn btn-primary" onclick="irPara(4)">
+              Avançar para medições
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ETAPA 4 -->
+    <section class="panel" id="panel-4">
+      <article class="card">
+        <div class="card-inner">
+          <header class="card-header">
+            <div class="card-title-group">
+              <div class="card-icon">
+                <i class="bi bi-rulers"></i>
+              </div>
+              <div class="card-heading">
+                <h2 class="card-title">Medições</h2>
+                <p class="card-subtitle">Preencha as medidas e o app gera os valores automaticamente</p>
+              </div>
+            </div>
+          </header>
+          <div class="measure-section" id="medicoes-pintura" hidden>
+            <div class="measure-header">
+              <div class="measure-dot"></div>
+              <span class="measure-title">Paredes / Tetos</span>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label class="label">Ambiente / Cômodo</label>
+                <input class="input" id="parede-nome" placeholder="Ex.: Sala, Quarto, Banheiro, Cozinha">
+              </div>
+              <div class="field third">
+                <label class="label">Comprimento (m)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="parede-comprimento" placeholder="0,00">
+              </div>
+              <div class="field third">
+                <label class="label">Largura (m)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="parede-largura" placeholder="0,00">
+              </div>
+              <div class="field third">
+                <label class="label">Altura (m)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="parede-altura" value="2.70">
+              </div>
+              <div class="field half">
+                <label class="label">Portas/Janelas a descontar (m²)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="parede-aberturas" value="0">
+              </div>
+              <div class="field half">
+                <label class="label">Área líquida (m²)</label>
+                <input class="input" id="parede-area" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="toggle-card">
+            <div class="toggle-info">
+              <span class="toggle-title">Aplicar valores padrão por m²</span>
+              <span class="toggle-sub">Usa preços sugeridos para mão de obra e materiais. Você pode editar depois.</span>
+            </div>
+            <label class="switch">
+              <input class="switch-input" type="checkbox" id="usar-padrao" checked onchange="togglePadrao()">
+              <span class="switch-track"></span>
+            </label>
+          </div>
+          <div id="precos-padrao">
+            <div class="form-grid">
+              <div class="field half">
+                <label class="label">Mão de obra - Pintura (R$/m²)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="preco-pintura-mo" value="18">
+              </div>
+              <div class="field half">
+                <label class="label">Materiais - Pintura (R$/m²)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="preco-pintura-mat" value="16">
+              </div>
+              <div class="field half">
+                <label class="label">Mão de obra - Massa Corrida (R$/m²)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="preco-massa-mo" value="16">
+              </div>
+              <div class="field half">
+                <label class="label">Materiais - Massa Corrida (R$/m²)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="preco-massa-mat" value="12">
+              </div>
+              <div class="field half">
+                <label class="label">Mão de obra - Textura/Grafiato (R$/m²)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="preco-textura-mo" value="25">
+              </div>
+              <div class="field half">
+                <label class="label">Materiais - Textura/Grafiato (R$/m²)</label>
+                <input class="input" type="number" step="0.01" inputmode="decimal" id="preco-textura-mat" value="22">
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-ghost" onclick="irPara(3)">
+              <i class="bi bi-arrow-left"></i>
+              Voltar
+            </button>
+            <button class="btn btn-primary" onclick="gerarOrcamentoAutomatico()">
+              Gerar orçamento automático
+              <i class="bi bi-magic"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ETAPA 5 -->
+    <section class="panel" id="panel-5">
+      <article class="card">
+        <div class="card-inner">
+          <header class="card-header">
+            <div class="card-title-group">
+              <div class="card-icon">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <div class="card-heading">
+                <h2 class="card-title">Orçamento gerado</h2>
+                <p class="card-subtitle">Revise, edite valores e envie ao cliente</p>
+              </div>
+            </div>
+            <button class="btn btn-glass" onclick="novoOrcamento()">
+              <i class="bi bi-plus-lg"></i>
+              Novo orçamento
+            </button>
+          </header>
+          <div class="list" id="lista-itens"></div>
+          <div class="toggle-card">
+            <div class="toggle-info">
+              <span class="toggle-title">Incluir dados no envio</span>
+              <span class="toggle-sub">Mantém cliente, endereço e observações no WhatsApp</span>
+            </div>
+            <label class="switch">
+              <input class="switch-input" type="checkbox" id="mostrar-dados" checked>
+              <span class="switch-track"></span>
+            </label>
+          </div>
+          <div class="form-grid">
+            <div class="field half">
+              <label class="label">Desconto (%)</label>
+              <input class="input" type="number" inputmode="decimal" id="desconto-percent" value="0" oninput="atualizarResumo()">
+            </div>
+            <div class="field half">
+              <label class="label">Desconto (R$)</label>
+              <input class="input" type="number" step="0.01" inputmode="decimal" id="desconto-reais" value="0" oninput="atualizarResumo()">
+            </div>
+          </div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <span class="summary-label">Mão de obra</span>
+              <span class="summary-value" id="sum-mo">R$ 0,00</span>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Materiais</span>
+              <span class="summary-value" id="sum-mat">R$ 0,00</span>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Subtotal</span>
+              <span class="summary-value" id="sum-sub">R$ 0,00</span>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Desconto</span>
+              <span class="summary-value" id="sum-desc">- R$ 0,00</span>
+            </div>
+          </div>
+          <div class="grand-card">
+            <div class="grand-inner">
+              <div class="grand-copy">
+                <span class="grand-kicker">Total a cobrar</span>
+                <span class="card-title">Rafael Nunes | Pintura e Acabamentos</span>
+                <span class="grand-sub">Orçamento pronto para aprovação</span>
+              </div>
+              <span class="grand-amount" id="sum-total">R$ 0,00</span>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-glass" onclick="gerarPDF()">
+              <i class="bi bi-printer"></i>
+              Imprimir / Salvar PDF
+            </button>
+            <button class="btn btn-success" onclick="enviarWhatsApp()">
+              <i class="bi bi-whatsapp"></i>
+              Enviar por WhatsApp
+            </button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="floating-bar">
+    <div class="floating-inner">
+      <div class="floating-info">
+        <span class="floating-label">Total estimado</span>
+        <span class="floating-value" id="bottom-total">R$ 0,00</span>
+      </div>
+      <button class="btn btn-primary" id="btn-revisar" onclick="irPara(5)" hidden>
+        Revisar orçamento
+        <i class="bi bi-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Salvo</div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
